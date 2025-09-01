@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Imprime uma mensagem de boas-vindas
-        run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando, é isso ai!"
+        run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando!"
 
       - name: Mostra o diretório de trabalho
         run: pwd
