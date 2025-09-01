@@ -1,10 +1,9 @@
 name: 01 - Nosso Primeiro Workflow
 
-# Define os gatilhos do workflow
 on:
   push:
-    branches: [ "main" ]      # Executa em push na branch main
-  workflow_dispatch:           # Permite execução manual
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   primeiro-job:
@@ -31,4 +30,4 @@ jobs:
         run: echo "A branch atual é $BRANCH_ATUAL"
 
       - name: Mostra o usuário que disparou o workflow
-
+        run: echo "O workflow foi executado por $USUARIO"
