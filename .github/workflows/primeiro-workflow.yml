@@ -1,8 +1,14 @@
+name: 01 - Nosso Primeiro Workflow
+
+# Define os gatilhos do workflow
+on:
+  push:
+    branches: [ "main" ]      # Executa em push na branch main
+  workflow_dispatch:           # Permite execução manual
+
 jobs:
   primeiro-job:
     runs-on: ubuntu-latest
-
-    # Aqui criamos variáveis de ambiente para todo o job
     env:
       REPO_NAME: ${{ github.repository }}
       BRANCH_ATUAL: ${{ github.ref }}
@@ -10,7 +16,7 @@ jobs:
 
     steps:
       - name: Imprime uma mensagem de boas-vindas
-        run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando, é isso ai!"
+        run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando!"
 
       - name: Mostra o diretório de trabalho
         run: pwd
@@ -25,4 +31,3 @@ jobs:
         run: echo "A branch atual é $BRANCH_ATUAL"
 
       - name: Mostra o usuário que disparou o workflow
-        run: echo "O workflow foi executado por $USUARIO"
