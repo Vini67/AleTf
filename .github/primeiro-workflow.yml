@@ -1,27 +1,28 @@
-# Nome do Workflow: Visível na aba "Actions" do GitHub
-name: 01 - Nosso Primeiro Workflow
-
-# Gatilho (Trigger): Define quando o workflow será executado.
-on:
-  # Executa em todo push para a branch 'main'
-  push:
-    branches: [ "main" ]
-  
-  # Permite que o workflow seja executado manualmente a partir da interface do GitHub
-  workflow_dispatch:
-
-# Jobs: Um workflow é composto por um ou mais jobs, que rodam em paralelo por padrão.
 jobs:
-  # Nome do nosso primeiro job
   primeiro-job:
-    # Runner: Define a máquina virtual onde o job será executado. 'ubuntu-latest' é uma boa escolha padrão.
     runs-on: ubuntu-latest
 
-    # Steps: Uma sequência de tarefas que serão executadas no job.
+    # Aqui criamos variáveis de ambiente para todo o job
+    env:
+      REPO_NAME: ${{ github.repository }}
+      BRANCH_ATUAL: ${{ github.ref }}
+      USUARIO: ${{ github.actor }}
+
     steps:
       - name: Imprime uma mensagem de boas-vindas
         run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando, é isso ai!"
+
       - name: Mostra o diretório de trabalho
         run: pwd
+
       - name: Lista os arquivos no runner
         run: ls ~ -la
+
+      - name: Mostra a variável do repositório
+        run: echo "O nome do repositório é $REPO_NAME"
+
+      - name: Mostra a branch atual
+        run: echo "A branch atual é $BRANCH_ATUAL"
+
+      - name: Mostra o usuário que disparou o workflow
+        run: echo "O workflow foi executado por $USUARIO"
