@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: RA - 6324048
+      - name: RA - 6324010
         run: echo "RA6324010 - Paulo Vinicius"
 
       - name: Mostra o diretório de trabalho
