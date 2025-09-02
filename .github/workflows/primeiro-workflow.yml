@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: RA - 6324048
-        run: echo "RA6324048 - Nicolas Henrique"
+        run: echo "RA6324010 - Paulo Vinicius"
 
       - name: Mostra o diretório de trabalho
         run: pwd
