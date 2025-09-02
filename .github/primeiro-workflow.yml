@@ -1,33 +1,23 @@
-name: 01 - Nosso Primeiro Workflow
+name: Meu Primeiro Workflow de CI
 
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'README.md'
   workflow_dispatch:
 
 jobs:
-  primeiro-job:
+  meu-primeiro-job:
     runs-on: ubuntu-latest
-    env:
-      REPO_NAME: ${{ github.repository }}
-      BRANCH_ATUAL: ${{ github.ref }}
-      USUARIO: ${{ github.actor }}
 
     steps:
-      - name: Imprime uma mensagem de boas-vindas
-        run: echo "👋 Olá, Mundo! Meu primeiro workflow com GitHub Actions está funcionando!"
+      - name: RA - 6324048
+        run: echo "RA6324048 - Nicolas Henrique"
 
       - name: Mostra o diretório de trabalho
         run: pwd
 
-      - name: Lista os arquivos no runner
-        run: ls ~ -la
+      - name: Mostra o nome do repositório
+        run: echo "O nome do repositório é ${{ github.repository }}"
 
-      - name: Mostra a variável do repositório
-        run: echo "O nome do repositório é $REPO_NAME"
-
-      - name: Mostra a branch atual
-        run: echo "A branch atual é $BRANCH_ATUAL"
-
-      - name: Mostra o usuário que disparou o workflow
-        run: echo "O workflow foi executado por $USUARIO"
